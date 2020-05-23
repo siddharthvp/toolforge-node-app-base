@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+	"test": "export PORT=3000 && node server.js",
     "start": "node server.js",
     "deploy": "webservice --backend kubernetes node10 restart"
   },
