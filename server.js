@@ -9,6 +9,7 @@ const mwn = require('mwn');
 // sql library for making database accesses, see https://www.npmjs.com/package/mysql
 const mysql = require('mysql');
 
+// bot account and database access credentials, if needed
 const crendentials = require('./credentials.json');
 
 const app = express();
@@ -27,9 +28,9 @@ const sql = mysql.createConnection({
 	database: 'enwiki_p'
 });
 
-// You may want to sign in with a bot account if you want to make use of high bot API limits, 
-// otherwise just remove the username and password fields below.
-const wiki = new mwn({ 
+// You may want to sign in with a bot account if you want to make use of high bot
+// API limits, otherwise just remove the username and password fields below.
+const wiki = new mwn({
 	apiUrl: 'https://en.wikipedia.org/w/api.php',
 	username: crendentials.bot_username,
 	password: crendentials.bot_password
