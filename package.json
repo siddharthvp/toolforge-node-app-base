@@ -4,9 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-	"test": "export PORT=3000 && node server.js",
+	  "test": "export PORT=3000 && node server.js",
     "start": "node server.js",
-    "deploy": "webservice --backend kubernetes node10 restart"
+    "deploy": "webservice --backend kubernetes node10 restart",
+    "logs": "kubectl logs -f $(kubectl get pods | head -2 | tail -1 | cut -d ' ' -f 1)"
   },
   "repository": {
     "type": "git",

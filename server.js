@@ -30,14 +30,14 @@ const sql = mysql.createConnection({
 
 // You may want to sign in with a bot account if you want to make use of high bot
 // API limits, otherwise just remove the username and password fields below.
-const wiki = new mwn({
+const client = new mwn({
 	apiUrl: 'https://en.wikipedia.org/w/api.php',
 	username: crendentials.bot_username,
 	password: crendentials.bot_password
 });
 
-// need to do either a .getSiteInfo() or .login() before we can use the wiki object
-wiki.getSiteInfo().then(() => {
+// need to do either a .getSiteInfo() or .login() before we can use the client object
+client.getSiteInfo().then(() => {
 
 	// Serve index.html as the homepage
 	app.get('/', (req, res) => {
@@ -57,8 +57,8 @@ wiki.getSiteInfo().then(() => {
 	// Sample GET endpoint that returns the wikitext of a specified page
 	app.get('/read_wiki_page', (req, res) => {
 		var page_name = req.query.page;
-		wiki.read(page_name).then(pg => {
-			var page_text = pg.revisions[0].text;
+		client.read(page_name).then(pg => {
+			var page_text = pg.revisions[0].content;
 			res.send(page_text);
 		});
 	});
