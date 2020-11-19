@@ -1,10 +1,10 @@
 {
   "name": "toolforge-node-app-base",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Base for building node apps for toolforge",
   "main": "server.js",
   "scripts": {
-	  "test": "export PORT=3000 && node server.js",
+    "test": "export PORT=3000 && npx nodemon server.js",
     "start": "node server.js",
     "deploy": "webservice --backend kubernetes node10 restart",
     "logs": "kubectl logs -f $(kubectl get pods | head -2 | tail -1 | cut -d ' ' -f 1)"
@@ -14,13 +14,15 @@
     "url": ""
   },
   "author": "",
-  "license": "",
+  "license": "MIT",
   "homepage": "",
   "dependencies": {
     "express": "^4.17.1",
-    "mwn": "^0.4.0"
+    "mwn": "^0.8.2",
+    "mysql2": "^2.2.5"
   },
   "devDependencies": {
-    "eslint": "^7.1.0"
+    "eslint": "^7.13.0",
+    "nodemon": "^2.0.6"
   }
 }
