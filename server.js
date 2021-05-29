@@ -1,12 +1,11 @@
 /* eslint-env node, es6 */
 
-// framework for setting up a server, see https://www.npmjs.com/package/express
 const express = require('express');
 
 // bot framework for interacting with the wiki, see https://www.npmjs.com/package/mwn
-const mwn = require('mwn');
+const {mwn} = require('mwn');
 
-// sql library for making database accesses, see https://www.npmjs.com/package/mysql2
+// sql client for database accesses, see https://www.npmjs.com/package/mysql2
 const mysql = require('mysql2/promise');
 
 // bot account and database access credentials, if needed
